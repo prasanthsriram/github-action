@@ -11,14 +11,14 @@ jobs:
     environment: dev
     steps:
       - name: gitclone 
-        run: git clone https://github.com/prasanthsriram/github-action.git
+        run: git clone https://github.com/Shubhambawa98/testenv.git
       - name: docker installation 
         run: curl -fsSL https://get.docker.com | sh 
       - name: docker login 
         run: docker login -u ${{secrets.DOCKERHUBUSERNAME}} -p ${{secrets.DOCKERHUBPASSWORD}}
       - name: docker build 
-        run: cd github-action && docker build . -t fast_api:satyam
+        run: cd testenv && docker build . -t fast_api:satyam
       - name: test
         run: echo "hello"
       - name: docker tag & push  
-        run: docker tag fast_api:satyam shubhambawa98/testlkm:satyam && docker push shubhambawa98/testlkm:satyam
+        run: docker tag fast_api:prasanth shubhambawa98/testlkm:prasanth && docker push shubhambawa98/testlkm:prasanth
